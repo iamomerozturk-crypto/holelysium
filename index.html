@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holelysium ($HOLY) - Trust the Glow, Ascend with HOLY</title>
+    <style>
+        :root {
+            --primary: #5ce1e6;
+            --gold: #ffd700;
+            --bg-dark: #050711;
+            --card-bg: rgba(18, 22, 46, 0.7);
+            --glow-cyan: 0 0 15px rgba(92, 225, 230, 0.6);
+            --glow-gold: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* CANLI KOZMİK ARKA PLAN */
+        .cosmic-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(135deg, #070919 0%, #030409 100%);
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(92, 225, 230, 0.15) 0%, transparent 70%);
+            top: -10%; left: -10%;
+            animation: floatNebula 15s ease-in-out infinite alternate;
+        }
+        .nebula-gold {
+            position: absolute;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            bottom: -10%; right: -10%;
+            animation: floatNebula 20s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes floatNebula {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 120px 20px 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 👑 HOLY LOGO MADALYONU */
+        .holy-logo-container {
+            position: relative;
+            width: 180px; height: 180px;
+            margin-bottom: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #1a224d 0%, #0a0e24 100%);
+            border: 3px solid var(--gold);
+            box-shadow: var(--glow-gold), inset var(--glow-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseGlow 3s ease-in-out infinite alternate;
+        }
+
+        .holy-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-shadow: var(--glow-gold);
+            letter-spacing: 3px;
+        }
+
+        .wings-effect {
+            position: absolute;
+            width: 260px; height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(92, 225, 230, 0.3), transparent);
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: var(--glow-gold); }
+            100% { transform: scale(1.04); box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 15px rgba(92, 225, 230, 0.6); }
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            margin: 0;
+            color: #ffffff;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        h1 span {
+            color: var(--primary);
+            text-shadow: var(--glow-cyan);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #a4b8cc;
+            margin: 15px 0 40px 0;
+        }
+
+        /* ÇOK SEÇENEKLİ BUTONLAR */
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 800px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .btn-pump {
+            background: linear-gradient(90deg, #86efac, #22c55e);
+            color: #000;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+        }
+        .btn-pump:hover { transform: translateY(-3px); box-shadow: 0 0 25px rgba(34, 197, 94, 0.8); }
+
+        .btn-cyan {
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: var(--glow-cyan);
+        }
+        .btn-cyan:hover { transform: translateY(-3px); box-shadow: 0 0 25px rgba(92, 225, 230, 0.9); }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        .btn-outline:hover { border-color: var(--primary); background: rgba(92, 225, 230, 0.1); transform: translateY(-3px); }
+
+        /* SEÇENEK PANELLERİ */
+        .options-section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tab-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #a4b8cc;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--card-bg);
+            border-color: var(--primary);
+            color: #ffffff;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .tab-content {
+            background: var(--card-bg);
+            border: 1px solid rgba(92, 225, 230, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            min-height: 200px;
+            display: none;
+            text-align: left;
+        }
+
+        .tab-content.active { display: block; }
+
+        .ca-box {
+            background: rgba(0,0,0,0.4);
+            border: 1px dashed var(--primary);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .ca-text { font-family: monospace; color: var(--primary); font-size: 1.1rem; }
+
+        .copy-btn {
+            background: var(--primary);
+            border: none; color: #000;
+            padding: 8px 16px; border-radius: 5px;
+            cursor: pointer; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cosmic-bg">
+        <div class="nebula"></div>
+        <div class="nebula-gold"></div>
+    </div>
+
+    <div class="hero">
+        <div class="holy-logo-container">
+            <div class="wings-effect"></div>
+            <div class="holy-text">HOLY</div>
+        </div>
+
+        <h1>HOLEY<span>SIUM</span></h1>
+        <h2>Trust the glow, ascend with HOLY</h2>
+
+        <div class="cta-group">
+            <a href="https://pump.fun" target="_blank" class="btn btn-pump">Buy on Pump.fun</a>
+            <a href="https://t.me" target="_blank" class="btn btn-cyan">Join Telegram</a>
+            <a href="https://x.com" target="_blank" class="btn btn-outline">Twitter / X</a>
+        </div>
+    </div>
+
+    <div class="options-section" id="options">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('lore')">🌌 Lore</button>
+            <button class="tab-btn" onclick="openTab('tokenomics')">🪙 Tokenomics</button>
+            <button class="tab-btn" onclick="openTab('roadmap')">🗺️ Roadmap</button>
+        </div>
+
+        <div id="lore" class="tab-content active">
+            <h3 style="color: var(--primary); margin-top:0;">The Celestial Order</h3>
+            <p style="line-height: 1.8; color: #c2d1e0; font-size: 1.1rem;">
+                Forget the cold pixels of computer monitors and the tiring digital noise of trading desks. At the highest peaks where the clouds part, the magnificent golden gates of paradise have swung open to reveal a new destiny. 
+                <br><br>
+                Standing before the shimmering cosmic portal, our blue-winged celestial angel calls upon all true believers. This is a spiritual tokenomics revolution built on pure community faith.
+            </p>
+            <div class="ca-box">
+                <span class="ca-text">CA: Coming Soon on Pump.fun</span>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('Coming Soon')">COPY</button>
+            </div>
+        </div>
+
+        <div id="tokenomics" class="tab-content">
+            <h3 style="color: var(--primary); margin-top:0;">Divine Metrics</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Ticker:</strong> $HOLY</p>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Total Supply:</strong> 1,000,000,000 Tokens</p>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Tax Protocol:</strong> 0% Buy / 0% Sell</p>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Security:</strong> 100% Liquidity Burned</p>
+        </div>
+
+        <div id="roadmap" class="tab-content">
+            <h3 style="color: var(--primary); margin-top:0;">Path of Ascension</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+                <strong>Phase 1:</strong> Gathering the Disciples & Launching on Pump.fun<br>
+                <strong>Phase 2:</strong> Dexscreener Trend Rituals & Community Memes<br>
