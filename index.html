@@ -5,280 +5,289 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holelysium ($HOLY) - Trust the Glow, Ascend with HOLY</title>
     <style>
+        @import url('https://googleapis.com');
+
         :root {
             --primary: #5ce1e6;
             --gold: #ffd700;
-            --bg-dark: #050711;
-            --card-bg: rgba(18, 22, 46, 0.7);
-            --glow-cyan: 0 0 15px rgba(92, 225, 230, 0.6);
-            --glow-gold: 0 0 15px rgba(255, 215, 0, 0.6);
+            --purple: #bf5cf2;
+            --bg-dark: #03050d;
+            --card-bg: rgba(10, 14, 36, 0.75);
+            --glow-cyan: 0 0 20px rgba(92, 225, 230, 0.6);
+            --glow-gold: 0 0 25px rgba(255, 215, 0, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-dark);
             color: #ffffff;
-            margin: 0;
-            padding: 0;
             overflow-x: hidden;
             text-align: center;
+            line-height: 1.6;
         }
 
-        /* CANLI KOZMİK ARKA PLAN */
-        .cosmic-bg {
+        /* 🪐 GÖZ KAMAŞTIRICI KOZMİK ARKA PLAN */
+        .cosmic-canvas {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(135deg, #070919 0%, #030409 100%);
+            background: radial-gradient(circle at 50% 30%, #0d133a 0%, #040612 80%);
             z-index: -2;
-            overflow: hidden;
         }
 
-        .nebula {
+        /* Süzülen Mum Grafiği Efektleri (Arka Planda Canlılık Sağlar) */
+        .chart-glow-1, .chart-glow-2 {
             position: absolute;
-            width: 600px; height: 600px;
+            width: 400px; height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(92, 225, 230, 0.15) 0%, transparent 70%);
-            top: -10%; left: -10%;
-            animation: floatNebula 15s ease-in-out infinite alternate;
+            filter: blur(120px);
+            opacity: 0.4;
+            z-index: -1;
         }
-        .nebula-gold {
-            position: absolute;
-            width: 500px; height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            bottom: -10%; right: -10%;
-            animation: floatNebula 20s ease-in-out infinite alternate-reverse;
-        }
+        .chart-glow-1 { background: var(--primary); top: 10%; left: -10%; animation: floatGlow 12s ease-in-out infinite alternate; }
+        .chart-glow-2 { background: var(--purple); bottom: 10%; right: -10%; animation: floatGlow 16s ease-in-out infinite alternate-reverse; }
 
-        @keyframes floatNebula {
+        @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.2); }
+            100% { transform: translate(60px, 40px) scale(1.2); }
         }
 
-        /* HERO SECTION */
-        .hero {
-            padding: 120px 20px 60px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* ✨ CANLI METİNLER VE KONTEYNER */
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 24px;
         }
 
         /* 👑 HOLY LOGO MADALYONU */
-        .holy-logo-container {
+        .holy-portal {
             position: relative;
-            width: 180px; height: 180px;
-            margin-bottom: 30px;
+            width: 150px; height: 150px;
+            margin: 0 auto 35px auto;
             border-radius: 50%;
-            background: radial-gradient(circle, #1a224d 0%, #0a0e24 100%);
-            border: 3px solid var(--gold);
-            box-shadow: var(--glow-gold), inset var(--glow-cyan);
+            background: radial-gradient(circle, #1c265c 0%, #060919 100%);
+            border: 4px solid var(--gold);
+            box-shadow: var(--glow-gold), inset 0 0 20px rgba(92, 225, 230, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: pulseGlow 3s ease-in-out infinite alternate;
+            animation: pulsePortal 3s ease-in-out infinite alternate;
         }
 
-        .holy-text {
+        .holy-logo-text {
+            font-family: 'Cinzel', serif;
             font-size: 2.2rem;
             font-weight: 900;
             color: var(--gold);
             text-shadow: var(--glow-gold);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
-        .wings-effect {
-            position: absolute;
-            width: 260px; height: 100px;
-            background: linear-gradient(90deg, transparent, rgba(92, 225, 230, 0.3), transparent);
-            filter: blur(10px);
-            z-index: -1;
-        }
-
-        @keyframes pulseGlow {
+        @keyframes pulsePortal {
             0% { transform: scale(1); box-shadow: var(--glow-gold); }
-            100% { transform: scale(1.04); box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 15px rgba(92, 225, 230, 0.6); }
+            100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), 0 0 20px rgba(92, 225, 230, 0.7); }
         }
 
         h1 {
-            font-size: 4.5rem;
-            margin: 0;
-            color: #ffffff;
-            letter-spacing: 5px;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
             font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 40%, #a6c0fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h1 span {
             color: var(--primary);
+            -webkit-text-fill-color: initial;
             text-shadow: var(--glow-cyan);
         }
 
-        h2 {
-            font-size: 1.6rem;
-            font-weight: 300;
-            color: #a4b8cc;
-            margin: 15px 0 40px 0;
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #8fa0dd;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
         }
 
-        /* ÇOK SEÇENEKLİ BUTONLAR */
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            max-width: 800px;
+        /* 🚀 ÇOK SEÇENEKLİ BUTON GRUBU */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 50px;
         }
 
         .btn {
-            padding: 14px 28px;
-            font-size: 0.95rem;
-            font-weight: bold;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+            font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.2s ease;
-            box-sizing: border-box;
-        }
-
-        .btn-pump {
-            background: linear-gradient(90deg, #86efac, #22c55e);
-            color: #000;
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
-        }
-        .btn-pump:hover { transform: translateY(-3px); box-shadow: 0 0 25px rgba(34, 197, 94, 0.8); }
-
-        .btn-cyan {
-            background-color: var(--primary);
-            color: var(--bg-dark);
-            box-shadow: var(--glow-cyan);
-        }
-        .btn-cyan:hover { transform: translateY(-3px); box-shadow: 0 0 25px rgba(92, 225, 230, 0.9); }
-
-        .btn-outline {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-        }
-        .btn-outline:hover { border-color: var(--primary); background: rgba(92, 225, 230, 0.1); transform: translateY(-3px); }
-
-        /* SEÇENEK PANELLERİ */
-        .options-section {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .tabs {
-            display: flex;
+            border-radius: 16px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
-        .tab-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #a4b8cc;
-            padding: 12px 24px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s ease;
+        .btn-green {
+            background: linear-gradient(90deg, #4ade80, #22c55e);
+            color: #03050d;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
         }
+        .btn-green:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(34, 197, 94, 0.7); }
 
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--card-bg);
-            border-color: var(--primary);
+        .btn-tg {
+            background-color: #229ed9;
             color: #ffffff;
-            box-shadow: var(--glow-cyan);
+            box-shadow: 0 0 20px rgba(34, 158, 217, 0.4);
         }
+        .btn-tg:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(34, 158, 217, 0.7); }
 
-        .tab-content {
+        .btn-x {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-x:hover { border-color: var(--primary); background: rgba(92, 225, 230, 0.1); transform: translateY(-3px); }
+
+        /* 🔮 SEÇENEKLER PANELİ (TAB SİSTEMİ) */
+        .interactive-board {
             background: var(--card-bg);
             border: 1px solid rgba(92, 225, 230, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            min-height: 200px;
-            display: none;
-            text-align: left;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .tab-content.active { display: block; }
+        .nav-tabs {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px;
+            border-radius: 14px;
+        }
 
-        .ca-box {
-            background: rgba(0,0,0,0.4);
-            border: 1px dashed var(--primary);
-            padding: 15px;
+        .tab-trigger {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #7a8eb5;
+            padding: 12px 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
             border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-trigger.active {
+            background: rgba(92, 225, 230, 0.15);
+            color: var(--primary);
+            box-shadow: inset 0 0 10px rgba(92, 225, 230, 0.2);
+            border: 1px solid rgba(92, 225, 230, 0.3);
+        }
+
+        .pane {
+            display: none;
+            text-align: left;
+            animation: fadeIn 0.4s ease;
+        }
+        .pane.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pane h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .pane p {
+            color: #b0c2de;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* 📋 SÖZLEŞME ALANI */
+        .ca-container {
+            background: rgba(0,0,0,0.5);
+            border: 1px dashed var(--primary);
+            padding: 16px;
+            border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 25px;
+        }
+        .ca-string { font-family: monospace; color: var(--primary); font-size: 1rem; font-weight: bold; }
+        .copy-action {
+            background: var(--primary); border: none; color: #000;
+            padding: 10px 18px; border-radius: 8px;
+            cursor: pointer; font-weight: 800; font-size: 0.9rem;
         }
 
-        .ca-text { font-family: monospace; color: var(--primary); font-size: 1.1rem; }
-
-        .copy-btn {
-            background: var(--primary);
-            border: none; color: #000;
-            padding: 8px 16px; border-radius: 5px;
-            cursor: pointer; font-weight: bold;
+        footer {
+            margin-top: 60px;
+            color: #52638a;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <div class="cosmic-bg">
-        <div class="nebula"></div>
-        <div class="nebula-gold"></div>
+    <div class="cosmic-canvas">
+        <div class="chart-glow-1"></div>
+        <div class="chart-glow-2"></div>
     </div>
 
-    <div class="hero">
-        <div class="holy-logo-container">
-            <div class="wings-effect"></div>
-            <div class="holy-text">HOLY</div>
+    <div class="container">
+        <!-- 👑 HOLY PORTAL LOGO -->
+        <div class="holy-portal">
+            <div class="holy-logo-text">HOLY</div>
         </div>
 
         <h1>HOLEY<span>SIUM</span></h1>
-        <h2>Trust the glow, ascend with HOLY</h2>
+        <div class="tagline">Trust the glow, ascend with HOLY</div>
 
-        <div class="cta-group">
-            <a href="https://pump.fun" target="_blank" class="btn btn-pump">Buy on Pump.fun</a>
-            <a href="https://t.me" target="_blank" class="btn btn-cyan">Join Telegram</a>
-            <a href="https://x.com" target="_blank" class="btn btn-outline">Twitter / X</a>
-        </div>
-    </div>
-
-    <div class="options-section" id="options">
-        <div class="tabs">
-            <button class="tab-btn active" onclick="openTab('lore')">🌌 Lore</button>
-            <button class="tab-btn" onclick="openTab('tokenomics')">🪙 Tokenomics</button>
-            <button class="tab-btn" onclick="openTab('roadmap')">🗺️ Roadmap</button>
+        <!-- 🚀 HIZLI SEÇENEK BUTONLARI -->
+        <div class="action-grid">
+            <a href="https://pump.fun" target="_blank" class="btn btn-green">⚡ Buy on Pump.fun</a>
+            <a href="https://t.me" target="_blank" class="btn btn-tg">📱 Join Telegram</a>
+            <a href="https://x.com" target="_blank" class="btn btn-x">🕊️ Follow Twitter / X</a>
         </div>
 
-        <div id="lore" class="tab-content active">
-            <h3 style="color: var(--primary); margin-top:0;">The Celestial Order</h3>
-            <p style="line-height: 1.8; color: #c2d1e0; font-size: 1.1rem;">
-                Forget the cold pixels of computer monitors and the tiring digital noise of trading desks. At the highest peaks where the clouds part, the magnificent golden gates of paradise have swung open to reveal a new destiny. 
-                <br><br>
-                Standing before the shimmering cosmic portal, our blue-winged celestial angel calls upon all true believers. This is a spiritual tokenomics revolution built on pure community faith.
-            </p>
-            <div class="ca-box">
-                <span class="ca-text">CA: Coming Soon on Pump.fun</span>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText('Coming Soon')">COPY</button>
+        <!-- 🔮 İNTERAKTİF SEÇENEKLER PANELİ -->
+        <div class="interactive-board">
+            <div class="nav-tabs">
+                <button class="tab-trigger active" onclick="switchTab('lore')">🌌 Lore</button>
+                <button class="tab-trigger" onclick="switchTab('tokenomics')">🪙 Tokenomics</button>
+                <button class="tab-trigger" onclick="switchTab('roadmap')">🗺️ Roadmap</button>
             </div>
-        </div>
 
-        <div id="tokenomics" class="tab-content">
-            <h3 style="color: var(--primary); margin-top:0;">Divine Metrics</h3>
-            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Ticker:</strong> $HOLY</p>
-            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Total Supply:</strong> 1,000,000,000 Tokens</p>
-            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Tax Protocol:</strong> 0% Buy / 0% Sell</p>
-            <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Security:</strong> 100% Liquidity Burned</p>
-        </div>
-
-        <div id="roadmap" class="tab-content">
-            <h3 style="color: var(--primary); margin-top:0;">Path of Ascension</h3>
-            <p style="font-size: 1.1rem; line-height: 1.6;">
-                <strong>Phase 1:</strong> Gathering the Disciples & Launching on Pump.fun<br>
-                <strong>Phase 2:</strong> Dexscreener Trend Rituals & Community Memes<br>
+            <!-- TAB 1: LORE -->
+            <div id="lore" class="pane active">
+                <h3>The Celestial Order</h3>
+                <p>
+                    Forget the cold pixels of computer monitors and the tiring digital noise of trading desks. At the highest peaks where the clouds part, the magnificent golden gates of paradise have swung open to reveal a new destiny.
+                    <br><br>
